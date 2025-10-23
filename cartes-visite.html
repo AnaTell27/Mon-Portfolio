@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cartes de visite - Anaëlle TELLIER</title>
+  <link rel="stylesheet" href="portfolio_ccp3.css">
+  <link rel="stylesheet" href="projets.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <canvas id="particles"></canvas>
+
+  <header>
+    <nav>
+      <div id="logo">Anaëlle<span>TELLIER</span></div>
+      <ul id="nav_barre">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="projets.html" class="active">Portfolio</a></li>
+        <li><a href="index.html#about">À propos</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="project-hero">
+    <p class="breadcrumb"><a href="projets.html">Portfolio</a> / Cartes de visite</p>
+    <h1>Cartes de visite</h1>
+    <p>Identité professionnelle & supports de contact</p>
+  </section>
+
+  <section class="projects-gallery">
+    <div class="gallery-grid">
+      
+      <div class="project-item">
+        <div class="project-image">
+          <img src="Images/Carte de visite Mimoo Candy.png" alt="Carte de visite Mimoo Candy">
+        </div>
+        <div class="project-info">
+          <h3>Mimoo Candy</h3>
+          <p>Carte de visite colorée et ludique pour la confiserie. Design recto-verso avec mascotte et informations de contact.</p>
+          <div class="project-tags">
+            <span class="tag">Confiserie</span>
+            <span class="tag">Fun</span>
+            <span class="tag">Recto-Verso</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div class="project-image">
+          <img src="Images/Carte de visite Boutique Attitude.png" alt="Carte de visite Boutique Attitude">
+        </div>
+        <div class="project-info">
+          <h3>Boutique Attitude</h3>
+          <p>Carte de visite épurée et élégante pour une boutique de mode. Design bicolore sophistiqué avec logo emblématique.</p>
+          <div class="project-tags">
+            <span class="tag">Mode</span>
+            <span class="tag">Élégance</span>
+            <span class="tag">Minimaliste</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Anaëlle TELLIER – Tous droits réservés</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="portfolio_ccp3.js"></script>
+  <script>
+    gsap.from(".project-item", {
+      scrollTrigger: {
+        trigger: ".gallery-grid",
+        start: "top 80%",
+      },
+      y: 60,
+      opacity: 0,
+      duration: 1,
+      ease: "power2.out"
+    });
+  </script>
+</body>
+</html>
