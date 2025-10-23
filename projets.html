@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Anaëlle TELLIER</title>
+  <link rel="stylesheet" href="portfolio_ccp3.css">
+  <link rel="stylesheet" href="projets.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <canvas id="particles"></canvas>
+
+  <header>
+    <nav>
+      <div id="logo">Anaëlle<span>TELLIER</span></div>
+      <ul id="nav_barre">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="projets.html" class="active">Portfolio</a></li>
+        <li><a href="index.html#about">À propos</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="portfolio-hero">
+    <h1>Mon Portfolio</h1>
+    <p>Découvrez mes créations graphiques</p>
+  </section>
+
+  <section class="portfolio-categories">
+    <div class="category-card" onclick="window.location.href='logos.html'">
+      <div class="category-overlay">
+        <h2>Logos</h2>
+        <p>Identités visuelles & mascottes</p>
+        <span class="view-more">Voir les projets →</span>
+      </div>
+    </div>
+
+    <div class="category-card" onclick="window.location.href='flyers.html'">
+      <div class="category-overlay">
+        <h2>Flyers</h2>
+        <p>Supports de communication</p>
+        <span class="view-more">Voir les projets →</span>
+      </div>
+    </div>
+
+    <div class="category-card" onclick="window.location.href='cartes-visite.html'">
+      <div class="category-overlay">
+        <h2>Cartes de visite</h2>
+        <p>Identité professionnelle</p>
+        <span class="view-more">Voir les projets →</span>
+      </div>
+    </div>
+  </section>
+
+    <div class="category-card" onclick="window.location.href='prototypes.html'">
+      <div class="category-overlay">
+        <h2>Prototypes</h2>
+        <p>Identité professionnelle</p>
+        <span class="view-more">Voir les projets →</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Anaëlle TELLIER – Tous droits réservés</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="portfolio_ccp3.js"></script>
+  <script>
+    // Animation des cartes au scroll
+    gsap.from(".category-card", {
+      scrollTrigger: {
+        trigger: ".portfolio-categories",
+        start: "top 80%",
+      },
+      y: 60,
+      opacity: 0,
+      duration: 1,
+      ease: "power2.out"
+    });
+  </script>
+</body>
+</html>
