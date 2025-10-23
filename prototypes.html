@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prototypes - Anaëlle TELLIER</title>
+  <link rel="stylesheet" href="portfolio_ccp3.css">
+  <link rel="stylesheet" href="projets.css">
+  <link rel="stylesheet" href="prototypes.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <canvas id="particles"></canvas>
+
+  <header>
+    <nav>
+      <div id="logo">Anaëlle<span>TELLIER</span></div>
+      <ul id="nav_barre">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="projets.html" class="active">Portfolio</a></li>
+        <li><a href="index.html#about">À propos</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="project-hero">
+    <p class="breadcrumb"><a href="projets.html">Portfolio</a> / Prototypes</p>
+    <h1>Prototypes Figma</h1>
+    <p>Prototypes interactifs et maquettes de projets web & mobile</p>
+  </section>
+
+  <section class="projects-gallery">
+    <div class="gallery-grid" id="projectsGrid">
+      <!-- Les cartes seront générées par JavaScript -->
+    </div>
+  </section>
+
+  <!-- Modal pour afficher les prototypes -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      
+      <!-- Header du modal -->
+      <div class="modal-header">
+        <div class="modal-info">
+          <h2 id="modalTitle">Titre du projet</h2>
+          <p id="modalDescription">Description du projet</p>
+        </div>
+        
+        <div class="modal-controls">
+          <!-- Sélecteur Desktop/Mobile -->
+          <div class="device-selector">
+            <button class="device-btn active" data-device="desktop" id="desktopBtn" title="Version Desktop">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
+            </button>
+            <button class="device-btn" data-device="mobile" id="mobileBtn" title="Version Mobile">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+            </button>
+          </div>
+          
+          <!-- Bouton plein écran -->
+          <button class="icon-btn" id="fullscreenBtn" title="Plein écran">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
+          </button>
+          
+          <!-- Bouton fermer -->
+          <button class="icon-btn close-btn" id="closeBtn" title="Fermer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Conteneur du device -->
+      <div class="device-container" id="deviceContainer">
+        
+        <!-- Frame Desktop -->
+        <div class="desktop-frame" id="desktopFrame">
+          <div class="monitor">
+            <div class="screen">
+              <div class="browser-chrome">
+                <div class="browser-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div class="browser-url" id="browserUrl">prototype.com</div>
+              </div>
+              <div class="iframe-container">
+                <iframe id="desktopIframe" frameborder="0" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Frame Mobile -->
+        <div class="mobile-frame hidden" id="mobileFrame">
+          <div class="phone">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <div class="status-bar">
+                <span class="status-time">9:41</span>
+                <div class="status-icons">
+                  <span>📶</span>
+                  <span>📶</span>
+                  <span>🔋</span>
+                </div>
+              </div>
+              <div class="iframe-container">
+                <iframe id="mobileIframe" frameborder="0" allowfullscreen></iframe>
+              </div>
+            </div>
+            <div class="home-indicator"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer du modal avec tags -->
+      <div class="modal-footer">
+        <div class="tags-container" id="modalTags">
+          <!-- Les tags seront générés par JavaScript -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Anaëlle TELLIER – Tous droits réservés</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="portfolio_ccp3.js"></script>
+  <script src="prototypes.js"></script>
+  <script>
+    // Animation GSAP au chargement
+    gsap.from(".project-item", {
+      scrollTrigger: {
+        trigger: ".gallery-grid",
+        start: "top 80%",
+      },
+      y: 60,
+      opacity: 0,
+      duration: 1,
+      ease: "power2.out"
+    });
+  </script>
+</body>
+</html>
